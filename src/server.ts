@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRotuer)
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`)
+  })
+}
+
+export default app
